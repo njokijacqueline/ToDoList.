@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.todolist.fragments.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@+id/homeFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_splashFragment_to_signInFragment"
+            app:destination="@+id/signingInFragment"
+            app:enterAnim="@anim/fade_in"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/signingInFragment"
+        android:name="com.example.todolist.fragments.SigningInFragment"
+        android:label="SigningInFragment"
+        tools:layout="@layout/fragment_signing_in">
+    <action
+        android:id="@+id/action_splashFragment_to_signUpFragment"
+        app:destination="@+id/signingUpFragment"
+        app:popUpTo="@id/signingInFragment"
+        app:popUpToInclusive="true"/>
+    <action
+        android:id="@+id/action_splashFragment_to_signInFragment_to_homeFragment"
+        app:destination="@+id/homeFragment"
+        app:popUpTo="@id/signingInFragment"
+        app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/signingUpFragment"
+        android:name="com.example.todolist.fragments.SigningUpFragment"
+        android:label="SigningUpFragment"
+        tools:layout="@layout/fragment_signing_up">>
+        <action
+            android:id="@+id/action_signingUpFragment_to_signingInFragment"
+            app:destination="@id/signingInFragment" />
+    </fragment>
+        <action
+            android:id="@+id/action_signInFragment_to_homeFragment"
+            app:destination="@+id/homeFragment"
+            app:popUpTo="@id/signingInFragment"
+            app:popUpToInclusive="true"/>
+    <action
+        android:id="@+id/action_signUpFragment_to_homeFragment"
+        app:destination="@+id/homeFragment"
+        app:popUpTo="@id/signingUpFragment"
+        app:popUpToInclusive="true"
+        />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.todolist.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+</navigation>
